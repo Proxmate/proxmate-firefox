@@ -1,30 +1,8 @@
-# Proxmate
+# Code has been moved. This version here is not maintained anymore.
 
-Website: https://web.proxmate.me
+## ProxMate for Firefox
 
-## Overview
-
-Proxmate is a browser plug-in service using web proxy technology to allow users to easily access certain web content that would normally not be accessible for them due to geo blocking of IPs.
-
-
-## Product components
-
-* Chrome (and Opera) plugin: https://github.com/SecureSoftwareVenture/proxmate-chrome
-* Firefox plugin: https://github.com/SecureSoftwareVenture/proxmate-firefox
-* Backend: https://github.com/SecureSoftwareVenture/proxmate-backend
-
-### Chrome
-
-This is the plugin that installs as add-on in Chrome browsers.
-
-### Firefox
-
-This is the plugin that installs as add-on in Firefox browsers.
-
-### Backend
-
-This is the software that is used by the Chrome plugin in order to make Proxmate operational.
-
+Extension store version here - https://addons.mozilla.org/en-US/firefox/addon/proxmate/
 
 ## Building
 

@@ -18,7 +18,11 @@
     "jquery": "~2.1.1",
     "angular": "~1.2.18",
     "angular-route": "~1.2.18",
-    "foundation": "~5.1.1"
+    "foundation": "~5.1.1",
+    "moment": "~2.10.6",
+    "bootstrap": "~3.3.5",
+    "semantic-ui": "~2.1.5",
+    "malihu-custom-scrollbar-plugin": "~3.1.1"
   },
   "devDependencies": {
     "sinon": "~1.10.1"

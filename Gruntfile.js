@@ -64,9 +64,8 @@ module.exports = function (grunt) {
                     mangle: true,
                     compress: true,
                     banner: '/*\n' +
-                            '  ProxMate version <%= manifest.version %> by David Mohl\n' +
+                            '  ProxMate version <%= manifest.version %> by Proxmate\n' +
                             '  Built on <%= grunt.template.today("yyyy-mm-dd @ HH:MM") %>\n' +
-                            '  Please see github.com/dabido/proxmate-firefox/ for infos\n' +
                             '*/\n'
                 },
                 files: [{
@@ -81,10 +80,10 @@ module.exports = function (grunt) {
                 options: {
                     compilation_level: 'SIMPLE_OPTIMIZATIONS',
                     banner: '/*\n' +
-                            '  ProxMate version <%= manifest.version %> by David Mohl\n' +
+                            '  ProxMate version <%= manifest.version %> by Proxmate\n' +
                             '  Built on <%= grunt.template.today("yyyy-mm-dd @ HH:MM") %>\n' +
-                            '  Please see github.com/dabido/proxmate-firefox/ for infos\n' +
-                            '*/\n'
+                            '*/\n',
+                    "max_processes": 1
                 },
                 files: [{
                     expand: true,
@@ -127,23 +126,51 @@ module.exports = function (grunt) {
                         '.tmp/data/bower_components/angular-route/angular-route.js': 'bower_components/angular-route/angular-route.min.js',
                         '.tmp/data/bower_components/foundation/css/foundation.min.css': 'bower_components/foundation/css/foundation.min.css',
                         '.tmp/data/bower_components/foundation/css/normalize.css': 'bower_components/foundation/css/normalize.css',
+                        '.tmp/data/bower_components/bootstrap/bootstrap.min.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                        '.tmp/data/bower_components/jquery/dist/jquery.mCustomScrollbar.concat.min.js': 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
+                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.eot': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot',
+                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.svg': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg',
+                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.ttf': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf',
+                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.woff': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff',
+                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.woff2': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2',
+                        '.tmp/data/bower_components/bootstrap/bootstrap.min.js': 'bower_components/bootstrap/dist/js/bootstrap.min.js',
+                        '.tmp/data/bower_components/moment/dist/moment.js': 'bower_components/moment/min/moment.min.js',
+                        '.tmp/data/bower_components/semantic/dist/semantic.min.js': 'bower_components/semantic-ui/dist/semantic.min.js',
+                        '.tmp/data/bower_components/semantic/dist/semantic.min.css': 'bower_components/semantic-ui/dist/semantic.min.css'
                     },
                     {expand: true, src: ['ressources/**/*'], dest: '.tmp/data'},
                     {expand: true, src: ['pages/**/*'], dest: '.tmp/data'},
+                    {expand: true, src: ['*'], cwd: 'src/', dest: '.tmp/lib'},
+                    {expand: true, src: ['src/page-worker/**/*'], dest: '.tmp/data'},
+                    {expand: true, src: ['src/pages/**/*'], dest: '.tmp/data'},
                 ]
             },
             dist: {
                 files: [{
                     'dist/package.json': 'package.json',
                     'dist/lib/proxmate.json': 'proxmate.json',
-                    'dist/data/bower_components/jquery/dist/jquery.js': 'bower_components/jquery/dist/jquery.min.js',
+                    'dist/data/bower_components/jquery/dist/jquery.js': 'bower_components/jquery/dist/jquery.js',
                     'dist/data/bower_components/angular/angular.js': 'bower_components/angular/angular.min.js',
                     'dist/data/bower_components/angular-route/angular-route.js': 'bower_components/angular-route/angular-route.min.js',
                     'dist/data/bower_components/foundation/css/foundation.min.css': 'bower_components/foundation/css/foundation.min.css',
                     'dist/data/bower_components/foundation/css/normalize.css': 'bower_components/foundation/css/normalize.css',
+                    'dist/data/bower_components/bootstrap/bootstrap.min.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                    'dist/data/bower_components/jquery/dist/jquery.mCustomScrollbar.concat.min.js': 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
+                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.eot': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot',
+                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.svg': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg',
+                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.ttf': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf',
+                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.woff': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff',
+                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.woff2': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2',
+                    'dist/data/bower_components/bootstrap/bootstrap.min.js': 'bower_components/bootstrap/dist/js/bootstrap.min.js',
+                    'dist/data/bower_components/moment/dist/moment.js': 'bower_components/moment/min/moment.min.js',
+                    'dist/data/bower_components/semantic/dist/semantic.min.js': 'bower_components/semantic-ui/dist/semantic.min.js',
+                    'dist/data/bower_components/semantic/dist/semantic.min.css': 'bower_components/semantic-ui/dist/semantic.min.css'
                     },
                     {expand: true, src: ['ressources/**/*'], dest: 'dist/data'},
                     {expand: true, src: ['pages/**/*'], dest: 'dist/data'},
+                    {expand: true, src: ['*'], cwd: 'src/', dest: 'dist/lib'},
+                    {expand: true, src: ['src/page-worker/**/*'], dest: 'dist/data'},
+                    {expand: true, src: ['src/pages/**/*'], dest: 'dist/data'},
                 ]
             },
             test: {
@@ -201,6 +228,18 @@ module.exports = function (grunt) {
                     dest: ''
                 }]
             },
+            livesrc: {
+                options: {
+                    patterns: [{
+                        json: grunt.file.readJSON('config/live.json')
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    src: ['.tmp/**/**', '!dist/**/*.png'],
+                    dest: ''
+                }]
+            },
         },
         clean: {
             src: '.tmp',
@@ -211,12 +250,23 @@ module.exports = function (grunt) {
     // Register commands
     grunt.registerTask('src', [
         'clean:src',
-        'coffee:src',
-        'coffee:test',
+        //'coffee:src',
+        //'coffee:test',
         'copy:src',
         'shell:srcpages',
         'shell:srcpageworker',
         'replace:dev'
+    ]);
+
+    // Register commands
+    grunt.registerTask('src-live', [
+        'clean:src',
+        //'coffee:src',
+        //'coffee:test',
+        'copy:src',
+        'shell:srcpages',
+        'shell:srcpageworker',
+        'replace:livesrc'
     ]);
 
     grunt.registerTask('minify', [
@@ -228,7 +278,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'coffee:dist',
+        //'coffee:dist',
         'copy:dist',
         'shell:distpages',
         'shell:distpageworker',

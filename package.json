@@ -2,10 +2,10 @@
   "name": "proxmate",
   "title": "@@PACKAGE_TITLE",
   "id": "@@PACKAGE_ID",
-  "description": "Intelligent manager for proxy modules available on proxmate.me!",
-  "author": "David Mohl",
+  "description": "Proxmate unblocks your favourite movies, music, sports and more",
+  "author": "Proxmate",
   "license": "CC BY-NC-SA 4.0",
-  "version": "4.1.1",
+  "version": "4.2",
   "devDependencies": {
     "bower": "~1.3.8",
     "browserify": "^4.1.10",
