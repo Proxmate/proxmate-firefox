@@ -170,6 +170,7 @@
 
                     remaining_time = get_time_difference(response.data.plan_expiration_date);
                     $scope.currentPlan = response.data.plan_status;
+                    $scope.plan_status = response.data.plan_status;
                     $scope.user_email = response.data.email;
                     $scope.subscription_status = response.data.subscription_status;
                     $scope.payment_status = response.data.payment_status;

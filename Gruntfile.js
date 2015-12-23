@@ -287,7 +287,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build-live', [
         'build',
         'replace:live',
-        'minify'
+        //'minify'
     ]);
 
     grunt.registerTask('build-beta', [
