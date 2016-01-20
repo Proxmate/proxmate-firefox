@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 
     require('load-grunt-tasks')(grunt);
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.initConfig({
         manifest: grunt.file.readJSON('package.json'),
@@ -126,23 +127,19 @@ module.exports = function (grunt) {
                         '.tmp/data/bower_components/angular-route/angular-route.js': 'bower_components/angular-route/angular-route.min.js',
                         '.tmp/data/bower_components/foundation/css/foundation.min.css': 'bower_components/foundation/css/foundation.min.css',
                         '.tmp/data/bower_components/foundation/css/normalize.css': 'bower_components/foundation/css/normalize.css',
-                        '.tmp/data/bower_components/bootstrap/bootstrap.min.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                        '.tmp/data/bower_components/bootstrap/dist/css/bootstrap.min.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                        '.tmp/data/bower_components/bootstrap/dist/js/bootstrap.min.js': 'bower_components/bootstrap/dist/js/bootstrap.min.js',
                         '.tmp/data/bower_components/jquery/dist/jquery.mCustomScrollbar.concat.min.js': 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
-                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.eot': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot',
-                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.svg': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg',
-                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.ttf': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf',
-                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.woff': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff',
-                        '.tmp/data/bower_components/fonts/glyphicons-halflings-regular.woff2': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2',
-                        '.tmp/data/bower_components/bootstrap/bootstrap.min.js': 'bower_components/bootstrap/dist/js/bootstrap.min.js',
                         '.tmp/data/bower_components/moment/dist/moment.js': 'bower_components/moment/min/moment.min.js',
                         '.tmp/data/bower_components/semantic/dist/semantic.min.js': 'bower_components/semantic-ui/dist/semantic.min.js',
                         '.tmp/data/bower_components/semantic/dist/semantic.min.css': 'bower_components/semantic-ui/dist/semantic.min.css'
                     },
-                    {expand: true, src: ['ressources/**/*'], dest: '.tmp/data'},
-                    {expand: true, src: ['pages/**/*'], dest: '.tmp/data'},
+                    {expand: true, src: ['ressources/**'], dest: '.tmp/data'},
+                    {expand: true, src: ['pages/**'], dest: '.tmp/data'},
                     {expand: true, src: ['*'], cwd: 'src/', dest: '.tmp/lib'},
-                    {expand: true, src: ['src/page-worker/**/*'], dest: '.tmp/data'},
-                    {expand: true, src: ['src/pages/**/*'], dest: '.tmp/data'},
+                    {expand: true, src: ['src/page-worker/**'], dest: '.tmp/data'},
+                    {expand: true, src: ['src/pages/**'], dest: '.tmp/data'},
+                    {expand: true, src: ['bower_components/bootstrap/dist/fonts/**'], dest: '.tmp/data'},
                 ]
             },
             dist: {
@@ -154,23 +151,19 @@ module.exports = function (grunt) {
                     'dist/data/bower_components/angular-route/angular-route.js': 'bower_components/angular-route/angular-route.min.js',
                     'dist/data/bower_components/foundation/css/foundation.min.css': 'bower_components/foundation/css/foundation.min.css',
                     'dist/data/bower_components/foundation/css/normalize.css': 'bower_components/foundation/css/normalize.css',
-                    'dist/data/bower_components/bootstrap/bootstrap.min.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                    'dist/data/bower_components/bootstrap/dist/css/bootstrap.min.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                    'dist/data/bower_components/bootstrap/dist/js/bootstrap.min.js': 'bower_components/bootstrap/dist/js/bootstrap.min.js',
                     'dist/data/bower_components/jquery/dist/jquery.mCustomScrollbar.concat.min.js': 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
-                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.eot': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot',
-                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.svg': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg',
-                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.ttf': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf',
-                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.woff': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff',
-                    'dist/data/bower_components/fonts/glyphicons-halflings-regular.woff2': 'bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2',
-                    'dist/data/bower_components/bootstrap/bootstrap.min.js': 'bower_components/bootstrap/dist/js/bootstrap.min.js',
                     'dist/data/bower_components/moment/dist/moment.js': 'bower_components/moment/min/moment.min.js',
                     'dist/data/bower_components/semantic/dist/semantic.min.js': 'bower_components/semantic-ui/dist/semantic.min.js',
                     'dist/data/bower_components/semantic/dist/semantic.min.css': 'bower_components/semantic-ui/dist/semantic.min.css'
                     },
-                    {expand: true, src: ['ressources/**/*'], dest: 'dist/data'},
-                    {expand: true, src: ['pages/**/*'], dest: 'dist/data'},
+                    {expand: true, src: ['ressources/**'], dest: 'dist/data'},
+                    {expand: true, src: ['pages/**'], dest: 'dist/data'},
                     {expand: true, src: ['*'], cwd: 'src/', dest: 'dist/lib'},
-                    {expand: true, src: ['src/page-worker/**/*'], dest: 'dist/data'},
-                    {expand: true, src: ['src/pages/**/*'], dest: 'dist/data'},
+                    {expand: true, src: ['src/page-worker/**'], dest: 'dist/data'},
+                    {expand: true, src: ['src/pages/**'], dest: 'dist/data'},
+                    {expand: true, src: ['bower_components/bootstrap/dist/fonts/**'], dest: 'dist/data'},
                 ]
             },
             test: {
@@ -220,11 +213,12 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [{
                         json: grunt.file.readJSON('config/live.json')
-                    }]
+                    }],
+                    noProcess: ['**/*.{png,gif,jpg,ico,svg,ttf,eot,woff}']
                 },
                 files: [{
                     expand: true,
-                    src: ['dist/**/**', '!dist/**/*.png'],
+                    src: ['dist/src/**', '!dist/**/*.png'],
                     dest: ''
                 }]
             },
@@ -232,13 +226,14 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [{
                         json: grunt.file.readJSON('config/live.json')
-                    }]
+                    }],
+                    noProcess: ['**/*.{png,gif,jpg,ico,svg,ttf,eot,woff}']
                 },
-                files: [{
-                    expand: true,
-                    src: ['.tmp/**/**', '!dist/**/*.png'],
-                    dest: ''
-                }]
+                files: [
+                    {expand: true, src: ['.tmp/data/src/**', '!dist/**/*.png'], dest: ''},
+                    {expand: true, src: ['.tmp/lib/**', '!dist/**/*.png'], dest: ''},
+                    {expand: true, src: ['.tmp/*', '!dist/**/*.png'], dest: ''},
+                ]
             },
         },
         clean: {
@@ -250,8 +245,6 @@ module.exports = function (grunt) {
     // Register commands
     grunt.registerTask('src', [
         'clean:src',
-        //'coffee:src',
-        //'coffee:test',
         'copy:src',
         'shell:srcpages',
         'shell:srcpageworker',
@@ -261,8 +254,6 @@ module.exports = function (grunt) {
     // Register commands
     grunt.registerTask('src-live', [
         'clean:src',
-        //'coffee:src',
-        //'coffee:test',
         'copy:src',
         'shell:srcpages',
         'shell:srcpageworker',

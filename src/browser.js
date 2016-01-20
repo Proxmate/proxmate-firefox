@@ -31,7 +31,7 @@
             null != this.statusButton && this.statusButton.destroy();
             null != this.panel && this.panel.destroy();
             this.statusButton = toggleButton({
-                id: "my-button", label: "my button",
+                id: "proxmate-button", label: "Proxmate",
                 icon: {
                     16: require("sdk/self").data.url("ressources/images/icon16.png"),
                     24: require("sdk/self").data.url("ressources/images/icon24.png"),
@@ -61,7 +61,7 @@
                     require("sdk/self").data.url("bower_components/jquery/dist/jquery.js"),
                     require("sdk/self").data.url("bower_components/jquery/dist/jquery.mCustomScrollbar.concat.min.js"),
                     require("sdk/self").data.url("bower_components/angular/angular.js"),
-                    require("sdk/self").data.url("bower_components/bootstrap/bootstrap.min.js"),
+                    require("sdk/self").data.url("bower_components/bootstrap/dist/js/bootstrap.min.js"),
                     require("sdk/self").data.url("src/pages/services/chrome.js"),
                     require("sdk/self").data.url("src/pages/popup.js")
                 ],

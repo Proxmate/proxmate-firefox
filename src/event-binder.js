@@ -46,7 +46,7 @@
             });
 
             require("sdk/page-mod").PageMod({
-                include: /resource\:\/\/@@PACKAGE_FULL_IDENTIFIER\/proxmate\/data\/pages\/install\/index.html.*/,
+                include: /resource\:\/\/@@PACKAGE_FULL_IDENTIFIER\/data\/pages\/install\/index.html.*/,
                 contentScriptFile: [
                     require('sdk/self').data.url('bower_components/jquery/dist/jquery.js'),
                     require('sdk/self').data.url('bower_components/angular/angular.js'),
@@ -59,6 +59,7 @@
                     };
                 })(this)
             });
+
             return require("sdk/page-mod").PageMod({
                 include: /.*/,
                 contentScriptFile: [
