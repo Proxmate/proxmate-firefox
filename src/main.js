@@ -33,21 +33,13 @@
 
         exports.main = function (options) {
             if (options.loadReason == 'install') {
-                Storage.set('is_install', 100);
+                Storage.set('is_install', true);
+                Storage.set('ran_install', '');
                 delete require("sdk/simple-storage").storage['api_key']
             }
         };
 
-        App.prototype.on_install = function() {
-            var ss, key;
-            ss = require("sdk/simple-storage");
-            for (key in ss.storage) {
-                delete ss.storage[key]
-            }
-        };
-
         App.prototype.init = function () {
-            //this.on_install()
             Browser.init();
             Config.init({
                 'primary_server': 'https://web.proxmate.me/'

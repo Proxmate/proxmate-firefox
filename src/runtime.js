@@ -39,51 +39,38 @@
 
             if (api_key) {
                 Browser.setPopup("pages/popup/index.html");
-            } else if (is_install) {
+            } else  {
                 self.is_install(function () {
-                })
-            } else {
-                self.is_update(function () {
                 })
             }
         };
 
         Runtime.prototype.is_install = function (callback) {
-            var server, uninstallUrl;
+            var server, uninstallUrl, ran_install;
+            ran_install = Storage.get('ran_install');
+            if( ran_install ) {
+                return;
+            }
+
             server = Config.get('primary_server');
             uninstallUrl = "" + server + "remove/";
             Browser.setUninstallURL(uninstallUrl);
             Browser.createTab('pages/install/index.html')
+            ran_install = Storage.set('ran_install', true);
         };
-
-        Runtime.prototype.is_update = function (callback) {
-            var self = this, is_update;
-            Storage.set('is_update', true);
-            self.requestActivation("", function (data) {
-                self.activatePlugin(data.api_key,
-                    function (data) {
-                        Storage.set('is_update', '')
-                    })
-            })
-        };
-
 
         Runtime.prototype.requestActivation = function (email, callback) {
-            var server, is_update, requestActivationUrl;
+            var server, requestActivationUrl;
             server = Config.get('primary_server');
-            //is_update = Storage.get('is_update') == undefined ? false : true;
-            is_update = Storage.get('is_update') == undefined ? '' : 'is_update';
 
             requestActivationUrl = "" + server + "api/user/activation/require/";
             Browser.POST(
                 requestActivationUrl,
                 {
                     email: email,
-                    browser: 'Firefox',
-                    is_update: is_update
+                    browser: 'Firefox'
                 },
                 function (data) {
-                    Storage.set('activation_link', data.activation_link);
                     return callback(data);
                 }
             );
@@ -99,7 +86,6 @@
                 if (!data.success) {
                     return callback(data)
                 }
-                Storage.set('activation_link', "")
                 Storage.set('api_key', key);
                 Status.update();
                 Browser.setPopup("pages/popup/index.html");
