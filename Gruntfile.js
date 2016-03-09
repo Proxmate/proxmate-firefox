@@ -65,7 +65,7 @@ module.exports = function (grunt) {
                     mangle: true,
                     compress: true,
                     banner: '/*\n' +
-                            '  ProxMate version <%= manifest.version %> by Proxmate\n' +
+                            '  Proxmate version <%= manifest.version %> by Proxmate\n' +
                             '  Built on <%= grunt.template.today("yyyy-mm-dd @ HH:MM") %>\n' +
                             '*/\n'
                 },
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
                 options: {
                     compilation_level: 'SIMPLE_OPTIMIZATIONS',
                     banner: '/*\n' +
-                            '  ProxMate version <%= manifest.version %> by Proxmate\n' +
+                            '  Proxmate version <%= manifest.version %> by Proxmate\n' +
                             '  Built on <%= grunt.template.today("yyyy-mm-dd @ HH:MM") %>\n' +
                             '*/\n',
                     "max_processes": 1

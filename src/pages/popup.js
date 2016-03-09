@@ -143,11 +143,11 @@
             };
 
             $scope.update_card = function () {
-                $scope.openTab('https://dev.proxmate.me/change-card/' + $scope.api_key + '/')
+                $scope.openTab('https://proxmate.me/change-card/' + $scope.api_key + '/')
             };
 
             $scope.unsubscribe = function () {
-                $scope.openTab('https://dev.proxmate.me/unsubscribe/' + $scope.api_key + '/')
+                $scope.openTab('https://proxmate.me/unsubscribe/' + $scope.api_key + '/')
             };
 
             $scope.openTab = function (url) {
