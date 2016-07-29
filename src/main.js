@@ -42,7 +42,7 @@
         App.prototype.init = function () {
             Browser.init();
             Config.init({
-                'primary_server': 'https://web.proxmate.me/'
+                'primary_server': 'https://proxmate.me/'
             });
             return Storage.init(function () {
                 return ServerManager.init(function () {

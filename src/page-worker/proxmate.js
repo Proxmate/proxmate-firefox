@@ -50,7 +50,7 @@
             window.ProxMate.activatePlugin(key, function (result) {
                 var _extra_params = '&browser=' + browser + '&activation_key=' + key;
                 if (!result.success) {
-                    window.location.href = '/channels/?activation=' + result.error + _extra_params;
+                    window.location.href = '/?activation=' + result.error + _extra_params;
                     return
                 }
 
@@ -59,7 +59,7 @@
                     return
                 }
 
-                window.location.href = '/channels/?activation=' + result.action + _extra_params;
+                window.location.href = '/?activation=' + result.action + _extra_params;
             })
         }
     }
